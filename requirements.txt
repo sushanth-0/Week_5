@@ -1,7 +1,6 @@
 Flask==2.2.2
 gunicorn==21.2.0
 itsdangerous==2.0.1
-Jinga2==3.1.1
 MarkupSafe==2.1.1
 Werkzeug==2.2.3
 pandas>=1.5.3
