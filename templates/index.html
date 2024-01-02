@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>BMI Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 50px;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        form {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        input[type="number"],
+        input[type="submit"] {
+            padding: 12px 15px;
+            margin: 10px;
+            width: 90%;
+            box-sizing: border-box;
+            /* Added for better width control */
+        }
+
+        input[type="number"] {
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            background-color: #fafafa;
+        }
+
+        input[type="submit"] {
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            /* Added transform effect */
+            font-weight: bold;
+            /* Make text bold */
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+            transform: scale(1.05);
+            /* Slightly enlarge button on hover */
+        }
+
+        .result {
+            margin-top: 30px;
+            background: #e9e9e9;
+            padding: 25px;
+            border-radius: 10px;
+            display: inline-block;
+            box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+            font-size: 18px;
+            /* Larger font size for results */
+        }
+
+        .result h2 {
+            margin: 10px 0;
+            color: #4CAF50;
+            /* Color to match submit button */
+        }
+    </style>
+</head>
+
+<body>
+    <h1>BMI Calculator</h1>
+    <form method="post" action="/predict">
+        Height <input type="number" name="height" placeholder="Height in cms" step="0.01" required><br>
+        Weight <input type="number" name="weight" placeholder="Weight in Kgs" step="0.01" required><br>
+        <input type="submit" value="Calculate BMI">
+    </form>
+    {% if bmi %}
+    <div class="result">
+        <h2>Predicted BMI: {{ bmi|round(2) }}</h2>
+        <h2>Classification: {{ classification }}</h2>
+    </div>
+    {% endif %}
+</body>
+
+</html>
